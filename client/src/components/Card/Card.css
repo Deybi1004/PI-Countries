@@ -1,0 +1,32 @@
+#container-card{
+    width: 200px;
+    height: 240px;
+    display :flex;
+    flex-direction: column;
+    padding-top: 5px;
+    font-size:80%;
+    padding-bottom: 40px;
+    /* border: 2px solid red; */
+    margin-left:50px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    color: #444;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #f8f8f8;
+    border: 1px transparent solid;
+    transition: 0.5s;
+}   
+#container-card:hover{
+    border-bottom: 1px solid black;
+    box-shadow: 0 10px 4px rgba(0,0,0,0.1);
+    transition: 0.5S;
+}
+#image-country{
+    width:60%;
+    padding-top:25px;
+    padding-bottom:25px;
+    /* border: 2px solid red; */
+
+}

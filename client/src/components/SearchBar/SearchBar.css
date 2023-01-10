@@ -1,0 +1,38 @@
+
+#search-input {
+    /* estilos para el elemento input en pantallas grandes */
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    font-size: 1em;
+    width: 12cm;
+    transition: all 0.5s ease-in-out;
+    border-radius: 20px 0px 0px 20px ;
+    
+  }
+  
+  @media (max-width: 600px) {
+    #search-input {
+      /* estilos para el elemento input en pantallas pequeñas */
+      width: 80%; /* se reduce el ancho del input */
+    }
+  }
+  
+  #search-button {
+    /* estilos para el elemento button en pantallas grandes */
+    background-color: white;
+    color: #fff;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    width: 1.5cm;
+    border-radius: 0px 20px 20px 0px ;
+  }
+  
+  @media (max-width: 600px) {
+    #search-button {
+      /* estilos para el elemento button en pantallas pequeñas */
+      font-size: 0.8em; /* se reduce el tamaño de la fuente */
+    }
+  }

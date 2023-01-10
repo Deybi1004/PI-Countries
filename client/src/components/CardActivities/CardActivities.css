@@ -1,0 +1,33 @@
+.container-all-activity{
+    border: 2px solid black;
+    display: flex;
+    margin: auto;
+    border-radius: 10px;
+    background-image: linear-gradient(to right bottom, #051937, #1c1e4a, #392059, #591c63, #7b0e65);
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+.container-all-activity:hover{
+    border: 2px solid white;
+    transition: 0.5s;
+}
+.activity-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 2px solid red; */
+    padding-left: 25px;
+    width: 150px;
+    font-size: 0.75rem;
+    color: white;
+    align-items: flex-start;
+
+}
+
+.image-activity{
+    border-radius: 10px;
+    height: 150px;
+    width: 220px;
+    margin:5px;
+    align-items: flex-end;
+}

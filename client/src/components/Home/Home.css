@@ -1,0 +1,143 @@
+*{
+    margin:0
+}
+.container-home{
+    display: flex;
+    flex-direction: column;
+}
+/* Contenedor Head */
+.container-head{
+    /* border:2px solid red; */
+    padding-bottom: 3.7cm;
+    background-image: linear-gradient(to right bottom, #051937, #1c1e4a, #392059, #591c63, #7b0e65);
+}
+
+/*Barra de búsqueda */
+.container-searchBar{
+    position:absolute ;
+    top:50px;
+    left:400px;
+    display:flex;
+}
+/* Contenedor de botones */
+.container-button-home{
+    position:absolute;
+    right:2.5cm;
+    top:40px;
+    display: flex;
+    /* Ajustamos el espacio entre los botones */
+    justify-content: space-between;
+    /* border:2px solid white; */
+    
+}
+
+/* Bottón crear */
+.button-create{
+    margin-right:10px;
+    border-right:2px solid white;
+      
+}
+.createButton{
+    background-color: transparent; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 0.5s;
+    
+}
+.createButton:hover{
+    font-size: 17px;
+    transition: font-size 0.5s;
+    
+}
+/* Bottón recargar */
+.rechargeButton{
+    background-color: transparent; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 100px;
+    height: 50px;
+    
+}
+
+.rechargeButton:hover{
+    font-size: 17px;
+    transition: font-size 0.5s;
+    
+}
+
+
+/* Cards */
+
+.cards{
+    min-height: 700px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF6FF;
+}
+
+#link-card{
+    text-decoration: none;
+}
+
+.cards > div {
+    width: 19%;
+    box-sizing: border-box;
+    margin: 0 8px 8px 0;
+  }
+/* Filters */
+.container-filters{
+    background-color: transparent;
+    padding: 10px 155px;
+    margin:0;
+    border-bottom: 1px solid black;
+    
+}
+.filters{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:transparent;
+}
+
+  
+  .filters label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+  
+  .filters select {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+
+/* Paginated */
+.paginated{
+    align-items: center;
+    justify-content: center;
+}

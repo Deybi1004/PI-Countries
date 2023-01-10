@@ -1,0 +1,30 @@
+
+.paginated-ul{
+    position: relative;
+    display: relative; 
+    list-style-type: none;
+    background-color: transparent ;
+    align-items: center;
+    text-align: center;
+    background-color:transparent;
+    bottom: 35px;
+    
+}
+.paginated-li{
+    display: inline-block;
+    margin-right: 20px;
+
+    
+}
+.botton-li{
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    font-size: 16px;
+    transition: 0.5s;
+}
+.botton-li:hover {
+    color: gold;
+    font-size: 20px;
+    transition: 0.1s;
+  }

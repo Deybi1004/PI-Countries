@@ -1,0 +1,99 @@
+
+.container-details{
+    background-image: linear-gradient(to right bottom, #051937, #1c1e4a, #392059, #591c63, #7b0e65);
+    width: 100%;
+    height: 100vh;
+    color: white;
+    border-bottom: 4px solid black;
+   
+}
+.container-link-home{
+   
+    width: 100px;
+    padding-top: 60px;
+    padding-left: 60px;
+    font-size: 1rem;
+    transition: 0.5s;
+  
+}
+.container-link-home:hover{
+   
+    font-size: 1.2rem;
+    transition: 0.5s;
+  
+}
+.link-home{
+    text-decoration: none;
+    color: white;
+
+}
+.container-description-country {
+    border: 2px solid black;
+    align-items: center;
+    margin-top: 20px;
+    width: auto;
+    display: inline-block;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 30px 30px 40px black;
+    background-color: #FFF6FF;
+    transition: 0.5s;
+  }
+ 
+.container-name{
+    position: relative;
+    
+    font-size: 2rem;
+    width: auto;
+    margin-top: 20px;
+}
+.container-image{
+    border-radius: 10px;
+    width:20rem;
+}
+.description-info{
+    /* border: 2px solid white; */
+    padding: 15px ;
+    text-align: center;
+    color:#591c63;
+}
+.description-capital,
+.description-continent,
+.description-region{
+  padding: 8px;
+  transition: 0.5s;
+ 
+}
+.description-capital:hover,
+.description-continent:hover,
+.description-region:hover{
+    font-size: 130%;
+    transition: 0.5s;
+   
+}
+.description-numbers{
+    /* border:2px solid green; */
+    text-align: center;;
+    padding: 15px;
+    border-top: 2px solid #591c63;
+    
+}
+.description-area,
+.description-population{
+    padding: 8px;
+    color:#591c63;
+    transition: 0.5s;
+}
+
+.description-area:hover,
+.description-population:hover{
+    font-size: 130%;
+    transition: 0.5s;  
+}
+
+.container-activities{
+    /* border: 2px solid red; */
+    display: flex;
+    position: relative;
+    top:2.5cm;
+}

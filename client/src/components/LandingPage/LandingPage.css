@@ -2,7 +2,7 @@
 
 .home {  
     position: relative;
-    background: url('../Images/Countrie-Image.jpg');
+    background: url('../Images/atardecer-landing.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -20,18 +20,18 @@
 .text_countries{
     /* border:2px solid blue; */
     color: white;
-    font-size: 80px;
+    font-size: 3.5rem;
+    cursor: default;
 }
 .container-button{
      /* border: 2px solid red;  */
     position: relative;
-    top: 200px;
+    top: 300px;
 }
 .custom-btn{
     width: 130px;
     height: 40px;
     color: #fff;
-    border-radius: 5px;
     padding: 10px 25px;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
@@ -40,9 +40,6 @@
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-     7px 7px 20px 0px rgba(0,0,0,.1),
-     4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
     font-size: 25px;
   } 
@@ -51,30 +48,12 @@
     border: none;
     color: #000;
   }
-  .btn-16:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    left: 0;
-    direction: rtl;
-    z-index: -1;
-    box-shadow:
-     -7px -7px 20px 0px #fff9,
-     -4px -4px 5px 0px #fff9,
-     7px 7px 20px 0px #0002,
-     4px 4px 5px 0px #0001;
-    transition: all 0.3s ease;
-  }
+ 
   .btn-16:hover {
-    color: #fff9;
+    color: #fff;
   }
   .btn-16:hover:after {
     left: auto;
     right: 0;
     width: 100%;
-  }
-  .btn-16:active {
-    top: 2px;
   }

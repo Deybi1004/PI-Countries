@@ -30,17 +30,18 @@ function Home() {
   const [countriesPerPage, setCountriesPerPage] = useState(10);
   const indexOfLastCountrie = currentPage * countriesPerPage;
   const indexOfFirstCountrie = indexOfLastCountrie - countriesPerPage;
-  const currentCountries = allCountries.slice(
-    indexOfFirstCountrie,
-    indexOfLastCountrie
-  );
+
+  const currentCountries =
+    currentPage === 1
+      ? allCountries.slice(0, 9)
+      : allCountries.slice(indexOfFirstCountrie, indexOfLastCountrie);
 
   useEffect(() => {
     //dispatch(getCountries());
     dispatch(getCountries());
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 2500);
   }, [dispatch]);
 
   useEffect(() => {
@@ -91,90 +92,100 @@ function Home() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 1300);
+    }, 2000);
   };
+  const handlePrev = (e) => {
+    e.preventDefault();
+    setCurrentPage(currentPage - 1);
+    console.log("click prev");
+  };
+  const handleNext = (e) => {
+    e.preventDefault();
+    setCurrentPage(currentPage + 1);
+    console.log("click next");
+  };
+
   if (loading) {
     return (
       <div>
         <div className="container-home">
-        {/* Buttons */}
-        <div className="container-head">
-          <div className="container-button-home">
-            <div>
-              <Link className="button-create" to="/form">
-                <button className="createButton">Create Activity</button>
-              </Link>
+          {/* Buttons */}
+          <div className="container-head">
+            <div className="container-button-home">
+              <div>
+                <Link className="button-create" to="/form">
+                  <button className="createButton">Create Activity</button>
+                </Link>
+              </div>
+              <div>
+                <button
+                  className="rechargeButton"
+                  onClick={(e) => handleRecharge(e)}
+                >
+                  Recharge
+                </button>
+              </div>
             </div>
-            <div>
-              <button
-                className="rechargeButton"
-                onClick={(e) => handleRecharge(e)}
+            {/*SearchBar*/}
+            <div className="container-searchBar">
+              <SearchBar setCurrentPage={setCurrentPage} />
+            </div>
+          </div>
+
+          {/* Filters */}
+          <div className="container-filters">
+            <div className="filters">
+              {/* Filter A-Z */}
+              <label>Sorter (A-Z)</label>
+              <select
+                className="select-country"
+                onChange={(e) => handleSortByCountrie(e)}
               >
-                Recharge
-              </button>
+                <option value="-">-</option>
+                <option value="A-Z">A-Z</option>
+                <option value="Z-A">Z-A</option>
+              </select>
+              {/* Filters By Continent */}
+              <label>Filter (Continent)</label>
+              <select
+                className="select-continent"
+                onChange={(e) => handleFilterByContinent(e)}
+              >
+                <option>All</option>
+                <option>Africa</option>
+                <option>Antarctica</option>
+                <option>Asia</option>
+                <option>Europe</option>
+                <option>North America</option>
+                <option>Oceania</option>
+                <option>South America</option>
+              </select>
+              {/* Filters by Population*/}
+              <label>Sorter (Population)</label>
+              <select
+                className="sort-population"
+                onChange={(e) => handleSortByPopulation(e)}
+              >
+                <option>-</option>
+                <option>Higher</option>
+                <option>Lower</option>
+              </select>
+              {/* Filter by Activity */}
+              <label>Filter (Activity)</label>
+              <select
+                className="select-activity"
+                onChange={(e) => handleFilterByActivity(e)}
+              >
+                <option>All</option>
+                {allActivities.map((e) => {
+                  return <option key={e.id}>{e.name}</option>;
+                })}
+              </select>
             </div>
           </div>
-          {/*SearchBar*/}
-          <div className="container-searchBar">
-            <SearchBar setCurrentPage={setCurrentPage} />
-          </div>
-        </div>
 
-        {/* Filters */}
-        <div className="container-filters">
-          <div className="filters">
-            {/* Filter A-Z */}
-            <label >Sorter (A-Z)</label>
-            <select
-              className="select-country"
-              onChange={(e) => handleSortByCountrie(e)}
-            >
-              <option value="-">-</option>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
-            </select>
-            {/* Filters By Continent */}
-            <label >Filter (Continent)</label>
-            <select
-              className="select-continent"
-              onChange={(e) => handleFilterByContinent(e)}
-            >
-              <option>All</option>
-              <option>Africa</option>
-              <option>Antarctica</option>
-              <option>Asia</option>
-              <option>Europe</option>
-              <option>North America</option>
-              <option>Oceania</option>
-              <option>South America</option>
-            </select>
-            {/* Filters by Population*/}
-            <label >Sorter (Population)</label>
-            <select
-              className="sort-population"
-              onChange={(e) => handleSortByPopulation(e)}
-            >
-              <option>-</option>
-              <option>Higher</option>
-              <option>Lower</option>
-            </select>
-            {/* Filter by Activity */}
-            <label >Filter (Activity)</label>
-            <select
-              className="select-activity"
-              onChange={(e) => handleFilterByActivity(e)}
-            >
-              <option>All</option>
-              {allActivities.map((e) => {
-                return <option key={e.id}>{e.name}</option>;
-              })}
-            </select>
-          </div>
+          <Loader />
         </div>
-        
-
-        <Loader />
-      </div>
       </div>
     );
   } else {
@@ -207,7 +218,7 @@ function Home() {
         <div className="container-filters">
           <div className="filters">
             {/* Filter A-Z */}
-            <label >Sorter (A-Z)</label>
+            <label>Sorter (A-Z)</label>
             <select
               className="select-country"
               onChange={(e) => handleSortByCountrie(e)}
@@ -217,7 +228,7 @@ function Home() {
               <option value="Z-A">Z-A</option>
             </select>
             {/* Filters By Continent */}
-            <label >Filter (Continent)</label>
+            <label>Filter (Continent)</label>
             <select
               className="select-continent"
               onChange={(e) => handleFilterByContinent(e)}
@@ -232,7 +243,7 @@ function Home() {
               <option>South America</option>
             </select>
             {/* Filters by Population*/}
-            <label >Sorter (Population)</label>
+            <label>Sorter (Population)</label>
             <select
               className="sort-population"
               onChange={(e) => handleSortByPopulation(e)}
@@ -242,7 +253,7 @@ function Home() {
               <option>Lower</option>
             </select>
             {/* Filter by Activity */}
-            <label >Filter (Activity)</label>
+            <label>Filter (Activity)</label>
             <select
               className="select-activity"
               onChange={(e) => handleFilterByActivity(e)}
@@ -254,11 +265,39 @@ function Home() {
             </select>
           </div>
         </div>
-        
-       
 
         {/*Cards*/}
-        
+
+        {/* <div className="buttons-paginated-prev-next">
+          {currentPage > 1 &&
+            <div className="button-prev" onClick={(e) => handlePrev(e)} >prev</div>
+          
+          } 
+            
+            <h4 className="text-currentPage">{currentPage}</h4>
+            <div  className="button-next" onClick={(e) => handleNext(e)}>next</div> */}
+
+        <div className="buttons-paginated-prev-next">
+          {/* prev */}
+          {currentPage > 1 && (
+            <div className="arrow-prev" onClick={(e) => handlePrev(e)} >
+              <div
+                className="arrow-top-prev"></div>
+              <div className="arrow-bottom-prev"></div>
+            </div>
+          )}
+          {/* text-current */}
+          <h4 className="text-currentPage">{currentPage}</h4>
+
+          {/* next */}
+          {currentPage <= 24 && (
+            <div className="arrow-next" onClick={(e) => handleNext(e)}>
+              <div className="arrow-top-next"></div>
+              <div className="arrow-bottom-next"></div>
+            </div>
+          )}
+        </div>
+
         <div className="cards">
           {currentCountries.map((e) => {
             return (
@@ -274,15 +313,14 @@ function Home() {
           })}
         </div>
 
-         {/* Paginated*/}
-         <div className="paginated">
+        {/* Paginated*/}
+        <div className="paginated">
           <Page
             countriesPerPage={countriesPerPage}
             allCountries={allCountries.length}
             page={page}
           />
         </div>
-
       </div>
     );
   }

@@ -81,11 +81,159 @@
 }
 
 
-/* Cards */
+/* Buttons-prev-next */
+.buttons-paginated-prev-next{
+    display: flex;
+/*    border: 2px solid red; */
+   justify-content: center;
+   padding-top: 15px;
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
+.text-currentPage{
+    cursor:default;
+}
 
+/* next */
+.arrow-next{
+    cursor: pointer;
+    height: 60px;
+    left: 50%;
+    display: flex;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: transform 0.1s;
+    width: 13px;
+    margin-left:40px ;
+    margin-top: 11px;
+  }
+  
+  .arrow-top-next, .arrow-bottom-next {
+    background-color: rgb(212, 212, 212);
+    height: 4px;
+    left: -5px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+  
+  .arrow-top-next:after, .arrow-bottom-next:after {
+    background-color: purple;
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+  }
+  
+  .arrow-top-next {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+  }
+  
+  .arrow-top-next:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0s;
+  }
+  
+  .arrow-bottom-next {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+  }
+  
+  .arrow-bottom-next:after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0.15s;
+  }
+  
+  .arrow-next:hover .arrow-top-next:after {
+    left: 0;
+    transition-delay: 0.15s;
+  }
+  
+  .arrow-next:hover .arrow-bottom-next:after {
+    right: 0;
+    transition-delay: 0s;
+  }
+  
+  .arrow-next:active {
+    transform: translateX(-50%) translateY(-50%) scale(0.9);
+  }
+
+  /* prev */
+
+  .arrow-prev{
+    cursor: pointer;
+    height: 60px;
+    right: 50%;
+    display: flex;
+    top: 50%;
+    transform: translateX(50%) translateY(-50%);
+    transition: transform 0.1s;
+    width: 13px;
+    margin-right:40px ;
+    margin-top: 11px;
+  }
+  
+  .arrow-top-prev, .arrow-bottom-prev {
+    background-color: rgb(212, 212, 212);
+    height: 4px;
+    right: -5px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+  
+  .arrow-top-prev:after, .arrow-bottom-prev:after {
+    background-color: purple ;
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+  }
+  
+  .arrow-top-prev {
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+  }
+  
+  .arrow-top-prev:after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0.15s;
+  }
+  
+  .arrow-bottom-prev {
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+  
+  .arrow-bottom-prev:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0s;
+  }
+  
+  .arrow-prev:hover .arrow-top-prev:after {
+    right: 0;
+    transition-delay: 0.15s;
+  }
+  
+  .arrow-prev:hover .arrow-bottom-prev:after {
+    left: 0;
+    transition-delay: 0s;
+  }
+  
+  .arrow-prev:active {
+    transform: translateX(50%) translateY(-50%) scale(0.9);
+  }
+
+  /* Cards */
 .cards{
     min-height: 700px;
-    padding-top: 30px;
     padding-bottom: 30px;
     display: flex;
     flex-wrap: wrap;

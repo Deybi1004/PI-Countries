@@ -46,6 +46,7 @@
     /* border:2px solid black; */
     margin: 30px;
     padding-top: 0;
+    cursor: default;
   }
   .form-complete{
     font-size: 50%;
@@ -148,6 +149,7 @@
     font-weight: bold;
     margin-right: 1rem;
     color: white;
+    cursor: default;
   }
   
   .image-country {

@@ -9,7 +9,6 @@ const{
 } = require("../controllers/countries");
 
     // OBTENER TODOS LOS PAÍSES y el nombre
-    countries
     router.get("/", async(req,res) => {
         const {name} = req.query;
         let allCountries = await getApiInfo();

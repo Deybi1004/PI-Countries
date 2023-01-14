@@ -38,11 +38,12 @@
     box-shadow: 30px 30px 40px black;
     background-color: #FFF6FF;
     transition: 0.5s;
+    cursor: default;
   }
  
 .container-name{
     position: relative;
-    
+    cursor: default;
     font-size: 2rem;
     width: auto;
     margin-top: 20px;

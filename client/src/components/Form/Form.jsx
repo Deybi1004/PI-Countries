@@ -7,17 +7,18 @@ import Nav from "../Nav/Nav";
 import "./Form.css";
 
 const validate = (input) => {
-  let errors = {};
+  let errorValidate = {};
   //console.log(input);
-  let hasNumber = /\d/.test(input.name);
-  if (hasNumber) errors.name = "Name not have numbers";
-  if (!input.name) errors.name = "Name must be completed";
-  if (input.difficulty.length > 1) errors.difficulty = "Difficulty es 1-5";
-  if (!input.difficulty) errors.difficulty = "Difficulty must be completed";
-  if (!input.duration) errors.duration = "Duration must be completed";
-  if (!input.season) errors.season = "Season must be selected";
-  if (!input.countries.length) errors.countries = "Countries must be completed";
-  return errors;
+  let hasSpecialChar = /[^a-zA-Z\sáéíóúÁÉÍÓÚñÑ]/.test(input.name);
+  if (hasSpecialChar) errorValidate.name = "Name must not have special characters";
+  if (!input.name) errorValidate.name = "Name must be completed";
+  if(input.name.length < 4) errorValidate.name = "Name must have more than 3 characters";
+  if (!input.difficulty) errorValidate.difficulty = "Difficulty must be completed";
+  if (input.difficulty > 5 ||input.difficulty < 1 ) errorValidate.difficulty = "Difficulty must not be less than 1 and greater than 5";
+  if (!input.duration) errorValidate.duration = "Duration must be completed";
+  if (!input.season) errorValidate.season = "Season must be selected";
+  if (input.countries.length < 1) errorValidate.countries = "Countries must be completed";
+  return errorValidate;
 };
 
 function Form() {
@@ -53,6 +54,13 @@ function Form() {
     //Valido si está seleccionado un país
     if (e.target.value === "-") {
       alert("Seleccione un país");
+      setErrors(
+        validate({
+          ...input,
+          [e.target.name]: e.target.value,
+        })
+      );
+      
     } else {
       //Convierto el value a JSON
 
@@ -68,6 +76,12 @@ function Form() {
           ...input,
           countries: [...input.countries, infoConvert],
         });
+        setErrors(
+        validate({
+          ...input,
+          [e.target.name]: e.target.value,
+        })
+      );
       }
     }
   };
@@ -77,6 +91,10 @@ function Form() {
     //console.log(e.target.value);
     if (e.target.value === "-") {
       alert("Seleccione una estación del año");
+      setInput({
+        ...input,
+        [e.target.name] : "",
+      });
     } else {
       setInput({
         ...input,
@@ -127,7 +145,7 @@ function Form() {
         history.push("/countries");
       }, 3500);
     } else {
-      alert("Please complete all the camps needed ");
+      alert("Please complete all the camps needed or correct the errors");
     }
   };
   if (loading) {
@@ -194,7 +212,7 @@ function Form() {
                 onChange={(e) => handleChange(e)}
               >
                 <optgroup label="Seasons">
-                  <option>-</option>
+                  <option value="-">-</option>
                   <option value="Spring">Spring</option>
                   <option value="Summer">Summer</option>
                   <option value="Autumn">Autumn</option>
@@ -205,7 +223,7 @@ function Form() {
             </div>
 
             <div className="container-country">
-              <label className="label-country">Country </label>
+              <label className="label-country">Country</label>
               <select
                 className="select-country"
                 onChange={(e) => handleCountrySelect(e)}
@@ -226,7 +244,6 @@ function Form() {
                   );
                 })}
               </select>
-
              
             </div>
 

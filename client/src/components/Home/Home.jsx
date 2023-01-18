@@ -34,6 +34,7 @@ function Home() {
   const [countriesPerPage, setCountriesPerPage] = useState(10);
   const indexOfLastCountrie = currentPage * countriesPerPage;
   const indexOfFirstCountrie = indexOfLastCountrie - countriesPerPage;
+  const pageNum = Math.ceil(allCountries.length/countriesPerPage);
 
   const currentCountries =
     currentPage === 1
@@ -155,7 +156,7 @@ function Home() {
           <h4 className="text-currentPage">{currentPage}</h4>
 
           {/* next */}
-          {currentPage <= 24 && (
+          {currentPage <= pageNum-1 && (
             <div className="arrow-next" onClick={(e) => handleNext(e)}>
               <div className="arrow-top-next"></div>
               <div className="arrow-bottom-next"></div>

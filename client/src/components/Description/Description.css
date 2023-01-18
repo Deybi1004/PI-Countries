@@ -50,13 +50,20 @@
 }
 .container-image{
     border-radius: 10px;
-    width:20rem;
+    width:15rem;
+    transition: 0.5s;
+}
+.container-image:hover{
+    border-radius: 10px;
+    width:23rem;
+    transition: 0.5s;
 }
 .description-info{
     /* border: 2px solid white; */
     padding: 15px ;
     text-align: center;
-    color:#591c63;
+    color:white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .description-capital,
 .description-continent,
@@ -68,8 +75,10 @@
 .description-capital:hover,
 .description-continent:hover,
 .description-region:hover{
-    font-size: 130%;
+    font-size: 150%;
     transition: 0.5s;
+    color: #7b0e65;
+    text-shadow: none;
    
 }
 .description-numbers{
@@ -82,14 +91,17 @@
 .description-area,
 .description-population{
     padding: 8px;
-    color:#591c63;
+    color:white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     transition: 0.5s;
 }
 
 .description-area:hover,
 .description-population:hover{
-    font-size: 130%;
+    font-size: 150%;
     transition: 0.5s;  
+    color:#7b0e65;
+    text-shadow: none;
 }
 
 .container-activities{
